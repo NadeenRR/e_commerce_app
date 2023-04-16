@@ -4,9 +4,9 @@ import 'package:e_commerce_app/utils/assets.dart';
 class Prodect {
   final String id;
   final String title;
-  final double price;
+  final int price;
   final String imageUrl;
-  final int? discountValue;
+  final int discountValue;
   final String categore;
   final double? rate;
 
@@ -15,7 +15,7 @@ class Prodect {
     required this.title,
     required this.price,
     required this.imageUrl,
-    this.discountValue,
+    this.discountValue = 0,
     this.categore = 'other',
     this.rate,
   });
