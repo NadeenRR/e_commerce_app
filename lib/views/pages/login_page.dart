@@ -1,4 +1,5 @@
 import 'package:e_commerce_app/utils/enums.dart';
+import 'package:e_commerce_app/utils/routes.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/main_button.dart';
@@ -108,7 +109,8 @@ class _AuthPageState extends State<AuthPage> {
                   text: authType == AuthFormType.login ? 'LOGIN' : 'REGISTER',
                   onTap: () {
                     if (formKey.currentState!.validate()) {
-                      debugPrint('Validate is done');
+                      Navigator.of(context)
+                          .pushNamed(AppRoutes.buttomNavPageRoute);
                     }
                   },
                 ),
