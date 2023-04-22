@@ -8,7 +8,7 @@ class Prodect {
   final String imageUrl;
   final int discountValue;
   final String categore;
-  final double? rate;
+  final int? rate;
 
   Prodect({
     required this.id,
@@ -40,57 +40,58 @@ class Prodect {
       imageUrl: map['imageUrl'] as String,
       discountValue: map['discountValue'] as int,
       categore: map['categore'] as String,
-      rate: map['rate'] != null ? map['rate'] as double : null,
+      rate: map['rate'] != null ? map['rate'] as int : null,
     );
   }
 }
-  List<Prodect> dummyProdect = [
-    Prodect(
-      id: '1',
-      title: 'T-shirt',
-      price: 300,
-      imageUrl: AppAssets.tShirtItem,
-      categore: 'Clothes',
-      discountValue: 20,
-    ),
-    Prodect(
-      id: '2',
-      title: 'T-shirt',
-      price: 300,
-      imageUrl: AppAssets.tShirtItem,
-      categore: 'Clothes',
-      discountValue: 20,
-    ),
-    Prodect(
-      id: '3',
-      title: 'T-shirt',
-      price: 300,
-      imageUrl: AppAssets.tShirtItem,
-      categore: 'Clothes',
-      discountValue: 20,
-    ),
-    Prodect(
-      id: '4',
-      title: 'T-shirt',
-      price: 300,
-      imageUrl: AppAssets.tShirtItem,
-      categore: 'Clothes',
-      discountValue: 20,
-    ),
-    Prodect(
-      id: '5',
-      title: 'T-shirt',
-      price: 300,
-      imageUrl: AppAssets.tShirtItem,
-      categore: 'Clothes',
-      discountValue: 20,
-    ),
-    Prodect(
-      id: '6',
-      title: 'T-shirt',
-      price: 300,
-      imageUrl: AppAssets.tShirtItem,
-      categore: 'Clothes',
-      discountValue: 20,
-    ),
-  ];
+
+List<Prodect> dummyProdect = [
+  Prodect(
+    id: '1',
+    title: 'T-shirt',
+    price: 300,
+    imageUrl: AppAssets.tShirtItem,
+    categore: 'Clothes',
+    discountValue: 20,
+  ),
+  Prodect(
+    id: '2',
+    title: 'T-shirt',
+    price: 300,
+    imageUrl: AppAssets.tShirtItem,
+    categore: 'Clothes',
+    discountValue: 20,
+  ),
+  Prodect(
+    id: '3',
+    title: 'T-shirt',
+    price: 300,
+    imageUrl: AppAssets.tShirtItem,
+    categore: 'Clothes',
+    discountValue: 20,
+  ),
+  Prodect(
+    id: '4',
+    title: 'T-shirt',
+    price: 300,
+    imageUrl: AppAssets.tShirtItem,
+    categore: 'Clothes',
+    discountValue: 20,
+  ),
+  Prodect(
+    id: '5',
+    title: 'T-shirt',
+    price: 300,
+    imageUrl: AppAssets.tShirtItem,
+    categore: 'Clothes',
+    discountValue: 20,
+  ),
+  Prodect(
+    id: '6',
+    title: 'T-shirt',
+    price: 300,
+    imageUrl: AppAssets.tShirtItem,
+    categore: 'Clothes',
+    discountValue: 20,
+  ),
+];

@@ -1,6 +1,8 @@
+import 'package:e_commerce_app/controllers/database_controller.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
+import 'package:provider/provider.dart';
 
 import 'home_page.dart';
 import 'login_page.dart';

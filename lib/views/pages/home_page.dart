@@ -1,6 +1,9 @@
+import 'package:e_commerce_app/controllers/database_controller.dart';
 import 'package:e_commerce_app/utils/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:e_commerce_app/models/prodect.dart';
+import 'package:flutter_provider/flutter_provider.dart';
+import 'package:provider/provider.dart';
 import '../widgets/list_item_home.dart';
 
 class HomePage extends StatelessWidget {
@@ -9,6 +12,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final database = context.watch<Database>();
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -51,24 +55,44 @@ class HomePage extends StatelessWidget {
                 buildHeaderList(
                   context,
                   title: 'Sale',
-                  description: 'Super Summer Sale!!',
+                  description: 'Super Summer Sale!',
                 ),
                 const SizedBox(height: 8.0),
                 SizedBox(
                   height: 300,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: dummyProdect
-                        .map(
-                          (e) => Padding(
-                            padding: const EdgeInsets.only(right: 10, top: 10),
-                            child: ListItemHome(
-                              prodect: e,
-                            ),
-                          ),
-                        )
-                        .toList(),
-                  ),
+                  child: StreamBuilder<List<Prodect>>(
+                      stream: database.salesProdectsStream(),
+                      builder: (context, snapshot) {
+                        if (snapshot.connectionState ==
+                            ConnectionState.active) {
+                          final prodects = snapshot.data;
+                          if (prodects == null || prodects.isEmpty) {
+                            return const Center(
+                              child: Text(
+                                'No data available!',
+                                style: TextStyle(fontSize: 17),
+                              ),
+                            );
+                          }
+                          return ListView(
+                            scrollDirection: Axis.horizontal,
+                            children: prodects
+                                .map(
+                                  (e) => Padding(
+                                    padding: const EdgeInsets.only(
+                                        right: 10, top: 10),
+                                    child: ListItemHome(
+                                      prodect: e,
+                                    ),
+                                  ),
+                                )
+                                .toList(),
+                          );
+                        }
+                        return Center(
+                          child: const CircularProgressIndicator(),
+                        );
+                      }),
                 ),
                 buildHeaderList(
                   context,
@@ -78,17 +102,37 @@ class HomePage extends StatelessWidget {
                 const SizedBox(height: 8.0),
                 SizedBox(
                   height: 300,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: dummyProdect
-                        .map(
-                          (e) => Padding(
-                            padding: const EdgeInsets.only(right: 10, top: 10),
-                            child: ListItemHome(prodect: e),
-                          ),
-                        )
-                        .toList(),
-                  ),
+                  child: StreamBuilder<List<Prodect>>(
+                      stream: database.newsProdectsStream(),
+                      builder: (context, snapshot) {
+                        if (snapshot.connectionState ==
+                            ConnectionState.active) {
+                          final prodects = snapshot.data;
+                          if (prodects == null || prodects.isEmpty) {
+                            return const Center(
+                              child: Text(
+                                'No data available!',
+                                style: TextStyle(fontSize: 17),
+                              ),
+                            );
+                          }
+                          return ListView(
+                            scrollDirection: Axis.horizontal,
+                            children: prodects
+                                .map(
+                                  (e) => Padding(
+                                    padding: const EdgeInsets.only(
+                                        right: 10, top: 10),
+                                    child: ListItemHome(prodect: e),
+                                  ),
+                                )
+                                .toList(),
+                          );
+                        }
+                        return const Center(
+                          child:  CircularProgressIndicator(),
+                        );
+                      }),
                 ),
               ],
             ),

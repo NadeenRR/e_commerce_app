@@ -1,4 +1,5 @@
 import 'package:e_commerce_app/controllers/auth_controller.dart';
+import 'package:e_commerce_app/controllers/database_controller.dart';
 import 'package:e_commerce_app/services/auth.dart';
 import 'package:e_commerce_app/views/pages/login_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -25,7 +26,9 @@ class LandingPage extends StatelessWidget {
           }
           return ChangeNotifierProvider<AuthConroller>(
               create: (_) => AuthConroller(auth: auth),
-              child: const ButtomNavBar());
+              child: Provider<Database>(
+                  create: (_) => Firestore(uid: user.uid),
+                  child: const ButtomNavBar()));
         }
         return const Scaffold(
           body: Center(child: CircularProgressIndicator()),
