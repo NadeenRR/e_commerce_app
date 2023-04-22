@@ -36,6 +36,14 @@ class AuthConroller with ChangeNotifier {
     copyWith(email: '', password: '', authFormType: formType);
   }
 
+  Future<void> logout() async {
+    try {
+      await auth.logout();
+    } catch (e) {
+      rethrow;
+    }
+  }
+
   Future<void> submit() async {
     try {
       if (authFormType == AuthFormType.login) {

@@ -4,6 +4,7 @@ import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
 import 'home_page.dart';
 import 'login_page.dart';
+import 'logout_page.dart';
 
 class ButtomNavBar extends StatefulWidget {
   const ButtomNavBar({super.key});
@@ -56,7 +57,8 @@ class _ButtomNavBarState extends State<ButtomNavBar> {
       Container(),
       Container(),
       Container(),
-      Container()
+    //  Container(), 
+      const LogOutPage()
     ];
   }
 

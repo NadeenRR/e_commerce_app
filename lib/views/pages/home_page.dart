@@ -1,7 +1,6 @@
-import 'package:e_commerce_app/models/prodect.dart';
 import 'package:e_commerce_app/utils/assets.dart';
 import 'package:flutter/material.dart';
-
+import 'package:e_commerce_app/models/prodect.dart';
 import '../widgets/list_item_home.dart';
 
 class HomePage extends StatelessWidget {
@@ -59,7 +58,7 @@ class HomePage extends StatelessWidget {
                   height: 300,
                   child: ListView(
                     scrollDirection: Axis.horizontal,
-                    children: dummyProdects
+                    children: dummyProdect
                         .map(
                           (e) => Padding(
                             padding: const EdgeInsets.only(right: 10, top: 10),
@@ -81,7 +80,7 @@ class HomePage extends StatelessWidget {
                   height: 300,
                   child: ListView(
                     scrollDirection: Axis.horizontal,
-                    children: dummyProdects
+                    children: dummyProdect
                         .map(
                           (e) => Padding(
                             padding: const EdgeInsets.only(right: 10, top: 10),

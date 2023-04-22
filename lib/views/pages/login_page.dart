@@ -28,7 +28,8 @@ class _AuthPageState extends State<AuthPage> {
     try {
       await auth.submit();
       if (!mounted) return;
-      Navigator.of(context).pushNamed(AppRoutes.buttomNavPageRoute);
+      // Navigator.of(context).pushNamed(AppRoutes.buttomNavPageRoute);
+      //Navigator.of(context).pop();
     } on Exception catch (e) {
       showDialog(
         context: context,

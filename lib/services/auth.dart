@@ -5,6 +5,8 @@ abstract class AuthBase {
   Stream<User?> authStateChange();
   Future<User?> loginWithEmailAndPassword(String email, String password);
   Future<User?> signUpWithEmailAndPassword(String email, String password);
+  Future<void> logout();
+
 }
 
 class Auth implements AuthBase {
@@ -31,5 +33,7 @@ class Auth implements AuthBase {
   @override
   User? get currentUser => _firebaseAuth.currentUser;
 
-  Future<void> logout() async => await _firebaseAuth.signOut();
+
+
+Future<void> logout() async => await _firebaseAuth.signOut();
 }
